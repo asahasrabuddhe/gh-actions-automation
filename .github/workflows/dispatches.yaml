@@ -1,0 +1,13 @@
+on:
+  dispatches:
+
+jobs:
+  handleDispatch:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Dump
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT" > context.json
+          cat context.json
